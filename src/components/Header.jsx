@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div className=" flex items-center p-2 gap-1">
       <Button onClick={toggleDrawer(true)}>
-        <MenuIcon className=" text-black" />
+        <MenuIcon className=" text-gray-400" />
       </Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         <DrawerComponent />
@@ -20,7 +20,7 @@ const Header = () => {
         <input
           type="text"
           placeholder="Search"
-          className=" bg-gray-200 text-sm p-2 rounded-full w-full "
+          className=" bg-gray-200 ps-4 text-sm p-2 rounded-full w-full "
         />
       </div>
     </div>

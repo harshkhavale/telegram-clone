@@ -15,10 +15,16 @@ const chatSlice = createSlice({
   name: 'chat',
   initialState: {
     chatList: [],
+    selectedChats:[],
+    selectedChatId: null, 
     status: 'idle',
     error: null,
   },
-  reducers: {},
+  reducers: {
+    selectChat: (state, action) => {
+      state.selectedChatId = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchChatList.pending, (state) => {
@@ -32,8 +38,25 @@ const chatSlice = createSlice({
       .addCase(fetchChatList.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
+      })
+      .addCase(fetchChatDetails.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchChatDetails.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        console.log('Chat Details:', action.payload); // Log the response to inspect it
+        // Assuming the payload contains details of the selected chat
+        // Update state accordingly
+        // For example, if action.payload is an object with messages array
+        state.selectedChats = action.payload || [];
+      })
+      .addCase(fetchChatDetails.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
       });
   },
 });
+
+export const { selectChat } = chatSlice.actions;
 
 export default chatSlice.reducer;

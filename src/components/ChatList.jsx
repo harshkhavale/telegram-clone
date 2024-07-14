@@ -24,7 +24,7 @@ const ChatList = () => {
   }
 
   return (
-    <div className=' h-full overflow-y-scroll p-2'>
+    <div className=' h-full overflow-y-scroll'>
       <ul>
         {chatList && chatList.map((chat) => (
           <ChatCard key={chat.id} chatData={chat}/>

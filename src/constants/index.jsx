@@ -11,7 +11,7 @@ export const drawerOptions = [
   },
   {
     label: "New Channel",
-    icon: <CampaignOutlinedIcon />,
+    icon: <CampaignOutlinedIcon className="" />,
   },
   {
     label: "Contacts",
