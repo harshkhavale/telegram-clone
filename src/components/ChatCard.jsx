@@ -13,8 +13,6 @@ const ChatCard = ({ chatData }) => {
   const handleChatSelect = () => {
     dispatch(selectChat(chatData.id));
     dispatch(fetchChatDetails(chatData.id));
-    // Optionally, you can perform additional actions upon chat selection
-    // Example: Navigate to chat details page, etc.
   };
 
   return (
